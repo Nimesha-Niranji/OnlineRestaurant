@@ -1,7 +1,7 @@
 {
   "name": "onlinerestaurant",
   "version": "1.0.0",
-  "description": "online restaurant API",
+  "description": "Online Restaurant API",
   "main": "app.js",
   "author": "Nimesha Niranji",
   "license": "ISC",
