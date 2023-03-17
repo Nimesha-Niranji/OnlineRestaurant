@@ -22,4 +22,5 @@ app.get("/", (req, res, next) => {
 app.listen(PORT, () => {
     logger.info(`Server is up and running on PORT ${PORT}`);
     connect();
+    googleAuth(passport);
 });
