@@ -23,11 +23,11 @@ const googleAuth = (passport) => {
       });
     
     passport.deserializeUser((id, callback) => {
-        User.findById(id, function (err, user) {
-          callback(err, user);
-        });
+        callback(null, id);
+        
       });
 
-    };
+};
 
-    };     
+export {googleAuth};
+    
