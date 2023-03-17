@@ -13,6 +13,8 @@ const PORT = process.env.PORT || "3073";
 
 app.use(cors());
 app.use(express.json({ limit: "20mb" }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get("/", (req, res, next) => {
   res.send("<h2> 🍔🍟🌮🍕🌭🍝🧆........Online Restaurant API.......🍽️🥨🥓🍗🍛🌯 </h2>");
