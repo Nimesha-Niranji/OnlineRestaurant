@@ -2,6 +2,7 @@ import express from "express";
 //import mongoose from "mongoose"
 import cors from "cors";
 import passport from "passport";
+import session from "express-session";
 import "dotenv/config";
 import logger from "./utils/logger";
 import {connect} from "./utils/database.connection";
@@ -13,6 +14,11 @@ const PORT = process.env.PORT || "3073";
 
 app.use(cors());
 app.use(express.json({ limit: "20mb" }));
+app.use(
+  session({
+    
+  })
+)
 app.use(passport.initialize());
 app.use(passport.session());
 
