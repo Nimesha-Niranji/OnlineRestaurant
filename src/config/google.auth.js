@@ -12,6 +12,8 @@ const googleAuth = (passport) => {
           clientSecret: config.GOOGLE_CLIENT_SECRET,
           callbackURL: config.GOOGLE_REDIRECT_URL,
         }, (accessToken, refreshToken, profile, callback) => {
+            console.log(profile);
+            return callback(null, profile);
 
         }
       ))
