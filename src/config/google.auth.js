@@ -18,13 +18,13 @@ const googleAuth = (passport) => {
         }
     ));
 
-    passport.serializeUser((user, done) => {
-        done(null, user.id);
+    passport.serializeUser((user, callback) => {
+        callback(null, user.id);
       });
     
-    passport.deserializeUser((id, done) => {
+    passport.deserializeUser((id, callback) => {
         User.findById(id, function (err, user) {
-          done(err, user);
+          callback(err, user);
         });
       });
 
