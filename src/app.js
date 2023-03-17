@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import logger from "./utils/logger";
 import {connect} from "./utils/database.connection";
+import {} from "./config/google.auth"
 
 
 const app = express();
