@@ -5,6 +5,7 @@ import passport from "passport";
 import session from "express-session";
 import "dotenv/config";
 import logger from "./utils/logger";
+import config from "./config";
 import {connect} from "./utils/database.connection";
 import {googleAuth} from "./config/google.auth"
 
@@ -16,7 +17,7 @@ app.use(cors());
 app.use(express.json({ limit: "20mb" }));
 app.use(
   session({
-    
+    secret : config.SESSION_SECRET,
   })
 )
 app.use(passport.initialize());
