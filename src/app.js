@@ -7,7 +7,8 @@ import session from "express-session";
 import logger from "./utils/logger";
 import config from "./config";
 import {connect} from "./utils/database.connection";
-import {googleAuth} from "./config/google.auth"
+import {googleAuth} from "./config/google.auth";
+import {routesInit} from "./api/routes";
 
 
 const app = express();
@@ -31,12 +32,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/", (req, res, next) => {
-  res.send("<h2> 🍔🍟🌮🍕🌭🍝🧆........Online Restaurant API.......🍽️🥨🥓🍗🍛🌯 </h2>");
+  //res.send("<h2> 🍔🍟🌮🍕🌭🍝🧆........Online Restaurant API.......🍽️🥨🥓🍗🍛🌯 </h2>");
+  res.send("<a href = 'http://localhost:3073/auth/google'>Loin with Google</a>");
   next();
 });
 
 app.listen(PORT, () => {
     logger.info(`Server is up and running on PORT ${PORT}`);
     connect();
+    routesInit(app, passport);
     googleAuth(passport);
 });
