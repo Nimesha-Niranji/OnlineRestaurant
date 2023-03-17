@@ -18,6 +18,13 @@ app.use(express.json({ limit: "20mb" }));
 app.use(
   session({
     secret : config.SESSION_SECRET,
+    resave : false,
+    saveUninitialized : false,
+  cookie : {
+    secure : false,
+    expires : new Date(Date.now() + 10000),
+    maxAge : 10000,
+  } 
   })
 )
 app.use(passport.initialize());
