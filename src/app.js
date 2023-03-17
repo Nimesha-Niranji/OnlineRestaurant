@@ -1,10 +1,11 @@
 import express from "express";
 //import mongoose from "mongoose"
 import cors from "cors";
+import passport from "passport";
 import "dotenv/config";
 import logger from "./utils/logger";
 import {connect} from "./utils/database.connection";
-import {} from "./config/google.auth"
+import {googleAuth} from "./config/google.auth"
 
 
 const app = express();
