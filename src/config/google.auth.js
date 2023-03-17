@@ -11,10 +11,23 @@ const googleAuth = (passport) => {
           clientID: config.GOOGLE_CLIENT_ID,
           clientSecret: config.GOOGLE_CLIENT_SECRET,
           callbackURL: config.GOOGLE_REDIRECT_URL,
-        }, (accessToken, refreshToken, profile, callback) => {
+        }, 
+        (accessToken, refreshToken, profile, callback) => {
             console.log(profile);
             return callback(null, profile);
-
         }
-      ))
-    }      
+    ));
+
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+      });
+    
+    passport.deserializeUser((id, done) => {
+        User.findById(id, function (err, user) {
+          done(err, user);
+        });
+      });
+
+    };
+
+    };     
