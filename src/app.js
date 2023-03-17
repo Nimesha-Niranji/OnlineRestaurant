@@ -1,9 +1,9 @@
+import "dotenv/config";
 import express from "express";
 //import mongoose from "mongoose"
 import cors from "cors";
 import passport from "passport";
 import session from "express-session";
-import "dotenv/config";
 import logger from "./utils/logger";
 import config from "./config";
 import {connect} from "./utils/database.connection";
