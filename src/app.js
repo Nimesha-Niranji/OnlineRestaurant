@@ -36,6 +36,7 @@ app.use(passport.session());
 //Routes
 app.use('/user', require('./api/routes/userRouter'))
 app.use('/api', require('./api/routes/categoryRouter'))
+app.use('/api', require('./api/routes/upload'))
 
 
 app.get("/", (req, res, next) => {
