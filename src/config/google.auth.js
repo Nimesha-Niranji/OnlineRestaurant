@@ -46,7 +46,7 @@ const googleAuth = (passport) => {
     passport.deserializeUser((id, callback) => {
         user.findById(id, (err, user) => {
           callback(err, user);
-        })
+        });
         
       });
 
