@@ -35,6 +35,8 @@ app.use(passport.session());
 
 //Routes
 app.use('/user', require('./api/routes/userRouter'))
+app.use('/api', require('./api/routes/categoryRouter'))
+
 
 app.get("/", (req, res, next) => {
   res.send("<h2> 🍔🍟🌮🍕🌭🍝🧆........Online Restaurant API.......🍽️🥨🥓🍗🍛🌯 </h2>");
