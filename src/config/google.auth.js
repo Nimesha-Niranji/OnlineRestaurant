@@ -42,12 +42,21 @@ const googleAuth = (passport) => {
     passport.serializeUser((user, callback) => {
         callback(null, user.id);
       });
-    
-    passport.deserializeUser((id, callback) => {
-        user.findById(id, (err, user) => {
+  
+      /*passport.deserializeUser(async(id, callback) => {
+        User.findById(id, (err, user) => {
           callback(err, user);
         });
         
+      });*/
+
+      passport.deserializeUser(async (id, callback) => {
+        try {
+          const user = await User.findById(id);
+          callback(null, user);
+        } catch (err) {
+          callback(err);
+        }
       });
 
 };
