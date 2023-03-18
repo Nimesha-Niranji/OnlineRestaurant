@@ -24,6 +24,13 @@ const userCtrl = {
 
             // Then create jsonwebtoken to authentication
             const accesstoken = createAccessToken({id: newUser._id})
+            const refreshtoken = createRefreshToken({id: newUser._id})
+
+            res.cookie('refreshtoken', refreshtoken, {
+                httpOnly: true,
+                path: '/user/refresh_token',
+                
+            })
 
             //res.json({msg : "Resgister Success!"})    
 
@@ -34,13 +41,18 @@ const userCtrl = {
         
 }
 
-}
+},
+
 
 
 }
 
 const createAccessToken = (user) =>{
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
+}
+
+const createRefreshToken = (user) =>{
+    return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '7d'})
 }
 
 module.exports = userCtrl
