@@ -37,6 +37,7 @@ app.use(passport.session());
 app.use('/user', require('./api/routes/userRouter'))
 app.use('/api', require('./api/routes/categoryRouter'))
 app.use('/api', require('./api/routes/upload'))
+app.use('/api', require('./api/routes/productRouter'))
 
 
 app.get("/", (req, res, next) => {
