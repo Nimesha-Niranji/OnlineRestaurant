@@ -14,7 +14,14 @@ const googleAuth = (passport) => {
           callbackURL: config.GOOGLE_REDIRECT_URL,
         }, 
         (accessToken, refreshToken, profile, callback) => {
-            console.log(profile);
+          const userObj = {
+            googleId: profile.id,
+            displayName: profile.displayName,
+            gmail: profile.emails[0].value,
+            image: profile.photos[0].value,
+            firstName: profile.name.givenName,
+            lastName: profile.name.familyName,
+          }
             return callback(null, profile);
         }
     ));
