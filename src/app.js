@@ -6,6 +6,7 @@ import passport from "passport";
 import session from "express-session";
 import logger from "./utils/logger";
 import config from "./config";
+import MongoStore from "connect-mongo";
 import {connect} from "./utils/database.connection";
 import {googleAuth} from "./config/google.auth";
 import {routesInit} from "./api/routes";
@@ -21,6 +22,7 @@ app.use(
     secret : config.SESSION_SECRET,
     resave : false,
     saveUninitialized : false,
+    store : MongoStore.create({mongoUrl: config.DB_CONNECTION_STRING }),
   cookie : {
     secure : false,
     expires : new Date(Date.now() + 10000),
