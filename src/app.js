@@ -33,6 +33,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Routes
+app.use('/user', require('./api/routes/userRouter'))
+
 app.get("/", (req, res, next) => {
   res.send("<h2> 🍔🍟🌮🍕🌭🍝🧆........Online Restaurant API.......🍽️🥨🥓🍗🍛🌯 </h2>");
   //res.send("<a href = 'http://localhost:3073/auth/google'>Loin with Google</a>");
