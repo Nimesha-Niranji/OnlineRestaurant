@@ -11,3 +11,5 @@ const routesInit = (app, passport) => {
     );
     
   };
+
+  export {routesInit};
